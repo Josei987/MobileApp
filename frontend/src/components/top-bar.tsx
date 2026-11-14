@@ -3,6 +3,7 @@ import {Image} from "expo-image";
 import {Link} from "expo-router";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {colors} from "../constants/themes";
+import Logo from "./logo";
 
 //fake until weave gets the points wired.
 const points: number | null = 120;
@@ -23,7 +24,11 @@ export default function TopBar() {
                 </View>
 
                 {/*center logo*/}
-
+                <Link href="/" asChild>
+                    <Pressable>
+                        <Logo width={120}/>
+                    </Pressable>
+                </Link>
                 {/*right side*/}
                 <View style={[styles.side, styles.right]}>
                     {points !== null ? (
@@ -40,7 +45,11 @@ export default function TopBar() {
 }
 
 const styles = StyleSheet.create({
-    safe: {backgroundColor: colors.goldDark},
+    safe: {
+        backgroundColor: colors.background,
+        borderBottomWidth: 1,
+        borderBottomColor: colors.border,
+    },
     bar: {
         flexDirection: "row",
         alignItems: "center",
@@ -51,12 +60,14 @@ const styles = StyleSheet.create({
     right: {alignItems: "flex-end"},
     logo: {width: 70, height: 70},
     button: {
-        backgroundColor: colors.gold,
+        backgroundColor: colors.buttonBg,
+        borderColor: colors.buttonBorder,
+        borderWidth: 1,
         paddingVertical: 8,
         paddingHorizontal: 14,
         borderRadius: 20,
         alignSelf: "flex-start"
     },
-    buttonText: {color: colors.green, fontWeight: "bold"},
-    points: {color: colors.green, fontWeight: "bold", fontSize: 16}
+    buttonText: {color: colors.buttonText, fontWeight: "bold"},
+    points: {color: colors.brand, fontWeight: "bold", fontSize: 16}
 });

@@ -5,12 +5,12 @@ import { colors } from "../constants/themes";
 
 export default function RootLayout() {
   return (
-    <View style={{ flex: 1, backgroundColor: colors.gold }}>
+    <View style={{ flex: 1, backgroundColor: colors.background }}>
     <TopBar />
     <Stack
       screenOptions={{
         headerShown: false,
-        contentStyle: { backgroundColor: colors.gold },
+        contentStyle: { backgroundColor: colors.background },
       }}
     />
   </View>
